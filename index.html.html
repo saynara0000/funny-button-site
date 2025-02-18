@@ -37,15 +37,31 @@
             opacity: 0;
             transition: opacity 0.5s ease-in-out;
         }
+        .hidden-image {
+            margin-top: 20px;
+            width: 200px;
+            height: 200px;
+            display: none;
+        }
     </style>
 </head>
 <body>
     <h1>Нажми на кнопку, если не боишься</h1>
-    <button class="button" onclick="showText()">Нажми меня</button>
+    <button class="button" onclick="toggleElements()">Нажми меня</button>
     <div class="hidden-text" id="message">Ты лох 😆</div>
+    <img class="hidden-image" id="funnyImage" src="https://i.imgur.com/O9ZxB5a.png" alt="Смешная картинка">
     <script>
-        function showText() {
-            document.getElementById('message').style.opacity = '1';
+        function toggleElements() {
+            let message = document.getElementById('message');
+            let image = document.getElementById('funnyImage');
+            
+            if (message.style.opacity === '1') {
+                message.style.opacity = '0';
+                image.style.display = 'none';
+            } else {
+                message.style.opacity = '1';
+                image.style.display = 'block';
+            }
         }
     </script>
 </body>
